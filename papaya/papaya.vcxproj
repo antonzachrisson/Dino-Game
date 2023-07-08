@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ae1ca923-66f9-4c87-8bc5-e8d6dc0b2262}</ProjectGuid>
+    <RootNamespace>papaya</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\build\</OutDir>
+    <IntDir>..\build\_intermediate\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName).$(PlatformShortName).$(Configuration.toLower())</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\build\</OutDir>
+    <IntDir>..\build\_intermediate\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName).$(PlatformShortName).$(Configuration.toLower())</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>include\;..\vendor\SDL2\include\;..\vendor\stb\</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4100;4189;4505;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>include\;..\vendor\SDL2\include\;..\vendor\stb\</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4100;4189;4505;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\game\component.cc" />
+    <ClCompile Include="src\game\game.cc" />
+    <ClCompile Include="src\game\gameobject.cc" />
+    <ClCompile Include="src\game\runtime.cc" />
+    <ClCompile Include="src\graphics\graphics.cc" />
+    <ClCompile Include="src\graphics\texture.cc" />
+    <ClCompile Include="src\graphics\texture_storage.cc" />
+    <ClCompile Include="src\input\input.cc" />
+    <ClCompile Include="src\input\keyboard.cc" />
+    <ClCompile Include="src\input\mouse.cc" />
+    <ClCompile Include="src\math\color.cc" />
+    <ClCompile Include="src\math\matrix3.cc" />
+    <ClCompile Include="src\math\matrix4.cc" />
+    <ClCompile Include="src\math\point.cc" />
+    <ClCompile Include="src\math\random.cc" />
+    <ClCompile Include="src\math\rectangle.cc" />
+    <ClCompile Include="src\math\vector2.cc" />
+    <ClCompile Include="src\math\vector3.cc" />
+    <ClCompile Include="src\math\vector4.cc" />
+    <ClCompile Include="src\papaya.cc" />
+    <ClCompile Include="src\platform\debug.cc" />
+    <ClCompile Include="src\platform\dispatcher.cc" />
+    <ClCompile Include="src\platform\filearchive.cc" />
+    <ClCompile Include="src\platform\filestream.cc" />
+    <ClCompile Include="src\platform\filesystem.cc" />
+    <ClCompile Include="src\platform\platform.cc" />
+    <ClCompile Include="src\platform\time.cc" />
+    <ClCompile Include="src\platform\window.cc" />
+    <ClCompile Include="src\scene\renderer.cc" />
+    <ClCompile Include="src\scene\sprite.cc" />
+    <ClCompile Include="src\scene\transform.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\game\component.hpp" />
+    <ClInclude Include="include\game\component_registry.hpp" />
+    <ClInclude Include="include\game\game.hpp" />
+    <ClInclude Include="include\game\gameobject.hpp" />
+    <ClInclude Include="include\game\runtime.hpp" />
+    <ClInclude Include="include\game\state.hpp" />
+    <ClInclude Include="include\graphics\graphics.hpp" />
+    <ClInclude Include="include\graphics\texture.hpp" />
+    <ClInclude Include="include\graphics\vertex.hpp" />
+    <ClInclude Include="include\input\button.hpp" />
+    <ClInclude Include="include\input\input.hpp" />
+    <ClInclude Include="include\input\key.hpp" />
+    <ClInclude Include="include\input\keyboard.hpp" />
+    <ClInclude Include="include\input\mouse.hpp" />
+    <ClInclude Include="include\math\color.hpp" />
+    <ClInclude Include="include\math\matrix3.hpp" />
+    <ClInclude Include="include\math\matrix4.hpp" />
+    <ClInclude Include="include\math\point.hpp" />
+    <ClInclude Include="include\math\random.hpp" />
+    <ClInclude Include="include\math\rectangle.hpp" />
+    <ClInclude Include="include\math\vector2.hpp" />
+    <ClInclude Include="include\math\vector3.hpp" />
+    <ClInclude Include="include\math\vector4.hpp" />
+    <ClInclude Include="include\papaya.hpp" />
+    <ClInclude Include="include\platform\debug.hpp" />
+    <ClInclude Include="include\platform\dispatcher.hpp" />
+    <ClInclude Include="include\platform\events.hpp" />
+    <ClInclude Include="include\platform\filearchive.hpp" />
+    <ClInclude Include="include\platform\filestream.hpp" />
+    <ClInclude Include="include\platform\filesystem.hpp" />
+    <ClInclude Include="include\platform\platform.hpp" />
+    <ClInclude Include="include\platform\time.hpp" />
+    <ClInclude Include="include\platform\window.hpp" />
+    <ClInclude Include="include\scene\renderer.hpp" />
+    <ClInclude Include="include\scene\sprite.hpp" />
+    <ClInclude Include="include\scene\transform.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\graphics\texture_storage.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
